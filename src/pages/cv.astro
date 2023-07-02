@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import TimeLineElement from "../components/cv/TimeLine.astro";
+import TimeLineElement from "../components/cv/TimeLineElement.astro";
 ---
 
 <BaseLayout title="Resume" sideBarActiveItemID="cv">
@@ -9,10 +9,13 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
   </div>
 
   <div class="mb-10 text-justify">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <p>
+    PHP developer with specialisation in Laravel. I'd like to write backend services (RESTful API, micro services without public access) and don't like to make frontend (but can work with VueJS, JQuery and bootstrap). 
+    I very like to work with distributed services and message brokers, such as Rabbit MQ
+    </p>
+    <p>
+    Part-time DevOps with skills in docker, Kubernetes, GCP, Gitlab CI.
+    </p>
   </div>
 
   <div class="mb-5">
@@ -21,12 +24,8 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
 
   <div class="time-line-container grid gap-4 mb-10">
     <TimeLineElement
-      title="Title Name"
-      subtitle="[start year] to [end year] at [Study Center Name], [City], [Country]"
-    />
-    <TimeLineElement
-      title="Title Name"
-      subtitle="[start year] to [end year] at [Study Center Name], [City], [Country]"
+      title="Moscow State University of Printing Arts (MGUP)"
+      subtitle="2008 to 2014, Master's degree, Engineering"
     />
   </div>
 
@@ -36,22 +35,28 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
 
   <div class="time-line-container mb-10">
     <TimeLineElement
-      title="Job Title at Project or Company Name"
-      subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]"
+      title="101XP - Backend Developer"
+      subtitle="From Oct 2020 to Present"
     >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+      Text
     </TimeLineElement>
     <TimeLineElement
-      title="Job Title at Project or Company Name"
-      subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]"
+      title="Freelance - System Analyst, Backend Developer"
+      subtitle="From Aug 2019 to Jun 2020"
     >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+    Text
     </TimeLineElement>
     <TimeLineElement
-      title="Job Title at Project or Company Name"
-      subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]"
+      title="PIK Group - System Analyst"
+      subtitle="From Jan 2018 to Jul 2019"
     >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+    Text
+    </TimeLineElement>
+    <TimeLineElement
+      title="Old life"
+      subtitle="From Jan 1989 to Dec 2017"
+    >
+    Interest but irrelevant :)
     </TimeLineElement>
   </div>
 
@@ -60,20 +65,25 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
   </div>
 
   <ul class="list-disc md:columns-5 columns-2 mx-6">
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
+    <li>Russian</li>
+    <li>English</li>
+    <li>PHP</li>
+    <li>Go</li>
+    <li>Laravel</li>
+    <li>Symfony</li>
+    <li>Sentry</li>
+    <li>Docker</li>
+    <li>Git</li>
+    <li>Gitlab CI</li>
+    <li>MySQL</li>
+    <li>Postgres SQL</li>
+    <li>Redis</li>
+    <li>RabbitMQ</li>
+    <li>Kubernetes</li>
+    <li>Helm</li>
+    <li>Nginx</li>
+    <li>Vue</li>
+    <li>Jira</li>
+    <li>Redmine</li>
   </ul>
 </BaseLayout>
