@@ -19,7 +19,7 @@ One of the solutions to this problem is the use of SQLite in memory (you can rea
 # The Solution
 ## TL;DR
 One line in docker-compose that will mount the database data folder into RAM. More information in docker documentation. Add to database service, example for MySQL
-```
+```yaml
 mysql:
   image: mysql:5.7
   tmpfs: /var/lib/mysql
@@ -32,7 +32,7 @@ max@DESKTOP:~/DEV$ composer create-project --prefer-dist laravel/laravel blazing
 max@DESKTOP:~/DEV/$ cd blazing-speed-test
 ```
 Create docker-compose.yml
-```
+```yaml
 version: '3'
 services:
   php:
@@ -55,7 +55,7 @@ services:
 Now let’s write a synthetic test to show benefits of tmpfs. To do this, we will slightly modify the test that is provided to us during installation — we will add a trait and a dataProvider to be able to set the number of tests.
 
 **tests\Feature\ExampleTest.php**
-```
+```php
 class ExampleTest extends TestCase
 {
     use DatabaseMigrations;
@@ -82,7 +82,7 @@ class ExampleTest extends TestCase
 ***NB**: I added about 10 migrations from a real project for this test — using base migrations is not indicative. Migration data is omitted in the article, but you can add your own from any project for testing.**
 
 Run Feature tests
-```
+```bash
 max@DESKTOP:~/DEV/blazing-speed-test$ docker-compose exec php vendor/phpunit/phpunit/phpunit --testsuite Feature
 PHPUnit 9.4.3 by Sebastian Bergmann and contributors.
 ...............
@@ -94,7 +94,7 @@ OK (15 tests, 15 assertions)
 Remember, 15 tests with migrations passed in 01:41
 
 Add tmpfs to **docker-compose.yml**
-```
+```yaml
 mysql:
   image: mysql:5.7
   tmpfs: /var/lib/mysql
@@ -104,7 +104,7 @@ mysql:
 ```
 Restart the containers (docker-compose restart will not work) and try again
 
-```
+```bash
 max@DESKTOP:~/DEV/blazing-speed-test$ docker-compose down -v
 max@DESKTOP:~/DEV/blazing-speed-test$ docker-compose up -d
 max@DESKTOP:~/DEV/blazing-speed-test$ docker-compose exec php vendor/phpunit/phpunit/phpunit --testsuite Feature
@@ -123,7 +123,7 @@ This is a synthetic example, in real projects the profit is less. But definitely
 Since the data is stored in RAM, it will be lost after unmounting. Therefore, for testing, I suggest making a separate docker-compose service, which will be used only for testing, and override the database connection parameters in phpunit.xml
 
 **docker-compose.yml**
-```
+```yaml
 mysql_develop:
   image: mysql:5.7
 
@@ -133,7 +133,7 @@ mysql_testing:
 ```
 
 **phpunit.xml**
-```
+```xml
 <php>
     <server name="APP_ENV" value="testing"/>
     <server name="DB_HOST" value="mysql_testing"/>
