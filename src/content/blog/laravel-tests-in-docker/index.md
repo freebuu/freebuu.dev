@@ -2,6 +2,7 @@
 title: "Speed up Feature tests in Laravel with docker-compose and tmpfs"
 description: "One line in docker-compose that will mount the database data folder into RAM"
 pubDate: "Nov 15 2020"
+mediumLink: "https://medium.com/@2618094/speed-up-feature-tests-in-laravel-with-docker-compose-and-tmpfs-a845a278d072"
 ---
 ![tmpfs in Docker](./docker_tmpfs.webp)
 

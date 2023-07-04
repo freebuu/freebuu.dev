@@ -1,33 +1,37 @@
 ---
 import { BlogSchema } from "../content/config";
 import BaseLayout from "./BaseLayout.astro";
+import SocialIcon from "../components/common/SocialIcon.astro";
 import dayjs from "dayjs";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 
 export interface Props extends BlogSchema {}
 
-const { title, description, pubDate, updatedDate, badge } = Astro.props;
+const { title, description, pubDate, updatedDate, badge, mediumLink } = Astro.props;
 dayjs.extend(localizedFormat);
 const displayDate = dayjs(pubDate).format("ll");
 ---
 
 <BaseLayout title={title} description={description} sideBarActiveItemID="blog">
   <main class="md:flex md:justify-center">
-    <article class="prose prose-lg max-w-[750px] lg:min-w-[750px] prose-img:mx-auto">
+    <article class="max-w-[750px] lg:min-w-[750px]">
       <h1 class="title my-2 text-4xl font-bold">{title}</h1>
-      {pubDate && <time>{displayDate}</time>}
-      <br />
+      <div class="flex content-center">
+        {pubDate && <time>{displayDate}</time>}
+        {mediumLink && <SocialIcon social="medium" link={ mediumLink }/>}
+      </div>
       {badge && <div class="badge badge-secondary my-1">{badge}</div>}
       {
         updatedDate && (
           <div>
-            {" "}
-            Last updated on <time>{updatedDate}</time>{" "}
+            Last updated on <time>{updatedDate}</time>
           </div>
         )
       }
-      <div class="divider my-2"></div>
-      <slot />
+      <div class="divider my-2"/>
+      <div class="prose prose-lg prose-img:mx-auto">
+        <slot />
+      </div>
     </article>
   </main>
 </BaseLayout>

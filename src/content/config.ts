@@ -6,6 +6,7 @@ const blogSchema = z.object({
     pubDate: z.coerce.date(),
     updatedDate: z.string().optional(),
     badge: z.string().optional(),
+    mediumLink: z.string().optional(),
 });
 
 export type BlogSchema = z.infer<typeof blogSchema>;
