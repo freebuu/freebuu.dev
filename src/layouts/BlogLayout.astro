@@ -13,7 +13,6 @@ const displayDate = dayjs(pubDate).format("ll");
 ---
 
 <BaseLayout title={title} description={description} sideBarActiveItemID="blog">
-  <main class="md:flex md:justify-center">
     <article class="max-w-[750px] lg:min-w-[750px]">
       <h1 class="title my-2 text-4xl font-bold">{title}</h1>
       <div class="flex content-center">
@@ -33,5 +32,4 @@ const displayDate = dayjs(pubDate).format("ll");
         <slot />
       </div>
     </article>
-  </main>
 </BaseLayout>

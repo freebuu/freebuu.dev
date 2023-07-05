@@ -9,7 +9,7 @@ import SideBar from "../components/sidebar/SideBar.astro";
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
-const { image, title = SITE_TITLE, description = SITE_DESCRIPTION, includeSidebar = true, sideBarActiveItemID, header="" } = Astro.props;
+const { image, title = SITE_TITLE, description = SITE_DESCRIPTION, includeSidebar = true, sideBarActiveItemID, header="", justify="left" } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -22,7 +22,10 @@ const { image, title = SITE_TITLE, description = SITE_DESCRIPTION, includeSideba
       <input id="my-drawer" type="checkbox" class="drawer-toggle" aria-label="open menu" />
       <div class="drawer-content bg-base-100">
         <Header title={SITE_TITLE} />
-        <div class="md:flex md:justify-left lg:mx-20">
+          <div   class:list={[
+            "md:flex lg:mx-20",
+            justify === 'center' ? "lg:justify-center" : "lg:justify-left"
+          ]}>
           <main class="p-6 pt-10 max-w-[900px]">
             {header && <PageHeader header={header}/>}
             <slot />
