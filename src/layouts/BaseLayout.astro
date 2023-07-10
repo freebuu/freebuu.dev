@@ -26,7 +26,7 @@ const { image, title = SITE_TITLE, description = SITE_DESCRIPTION, includeSideba
             "md:flex lg:mx-20",
             justify === 'center' ? "lg:justify-center" : "lg:justify-left"
           ]}>
-          <main class="p-6 pt-10 max-w-[900px]">
+          <main class="p-6 pt-10 lg:max-w-[900px] max-w-[100vw]">
             {header && <PageHeader header={header}/>}
             <slot />
           </main>
