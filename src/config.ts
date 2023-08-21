@@ -1,2 +1,2 @@
-export const SITE_TITLE = 'Portfolio';
-export const SITE_DESCRIPTION = 'Portfolio';
+export const SITE_TITLE = '@freebuu';
+export const SITE_DESCRIPTION = 'Yet another homepage';
