@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
-  site: 'https://freebuu.github.io',
+  site: 'https://freebuu.dev',
   experimental: {
     assets: true
    },
