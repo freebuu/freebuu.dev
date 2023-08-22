@@ -1,6 +1,16 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import TimeLineElement from "../components/cv/TimeLineElement.astro";
+import { getCollection } from "astro:content";
+import dayjs from "dayjs";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+
+const jobs = await getCollection('job')
+jobs.sort((a, b) => b.data.dateStart.valueOf() - a.data.dateStart.valueOf());
+dayjs.extend(localizedFormat);
+function displayDate(date) {
+  return dayjs(date).format("MMM YYYY");
+} 
 ---
 
 <BaseLayout title="CV" sideBarActiveItemID="cv">
@@ -33,30 +43,17 @@ import TimeLineElement from "../components/cv/TimeLineElement.astro";
   </div>
 
   <div class="time-line-container mb-10">
-    <TimeLineElement
-      title="101XP - Backend Developer"
-      subtitle="From Oct 2020 to Present"
-    >
-      Text
-    </TimeLineElement>
-    <TimeLineElement
-      title="Freelance - System Analyst, Backend Developer"
-      subtitle="From Aug 2019 to Jun 2020"
-    >
-    Text
-    </TimeLineElement>
-    <TimeLineElement
-      title="PIK Group - System Analyst"
-      subtitle="From Jan 2018 to Jul 2019"
-    >
-    Text
-    </TimeLineElement>
-    <TimeLineElement
-      title="Old life"
-      subtitle="From Jan 1989 to Dec 2017"
-    >
-    Interest but irrelevant :)
-    </TimeLineElement>
+    {jobs.map(async job => {
+      const { Content } = await job.render();
+      return <TimeLineElement
+        title={job.data.employer + " - " + job.data.position}
+        subtitle={"From " + displayDate(job.data.dateStart) + " to " + (job.data.dateEnd ? displayDate(job.data.dateEnd) : "Present")}
+      >
+      <div class="mb-5">
+        <Content />
+      </div>
+      </TimeLineElement>
+    })}
   </div>
 
   <div class="mb-5">
