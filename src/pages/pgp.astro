@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Code from 'astro/components/Code.astro'
+---
+<BaseLayout sideBarActiveItemID="pgp">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Public PGP Key</div>
+  </div>
+  <Code code={`
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+    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
+    0pG78moR8WZOHTTseyM=
+    =X6Fg
+    -----END PGP PUBLIC KEY BLOCK-----
+  `} />
+</BaseLayout>
