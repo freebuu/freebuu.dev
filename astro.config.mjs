@@ -6,5 +6,14 @@ export default defineConfig({
   experimental: {
     assets: true
    },
-  integrations: [tailwind()]
+  integrations: [tailwind()],
+  vite: {
+    build: {
+        rollupOptions: {
+            external: [
+                "shiki/themes/hc_light.json"
+            ],
+        },
+    },
+  },
 });
