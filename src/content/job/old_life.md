@@ -1,6 +1,6 @@
 ---
-employer: "PIK Group"
-position: "System Analyst"
+employer: "Old life"
+position: "Student/Worker/Manager"
 dateStart: Jan 1989
 dateEnd: Dec 2017
 ---
